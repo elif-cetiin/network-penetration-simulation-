@@ -1,13 +1,13 @@
-## Network Penetration Simulation (Ethical Hacking Project)
+# Network Penetration Simulation (Ethical Hacking Project)
 
 This project documents ethical penetration testing activities executed in a controlled, isolated lab environment. Work was performed using Kali Linux (VM), Parrot OS, Wireshark, Nmap, and Python. The primary goals were to reproduce realistic attack patterns, capture and analyze network traffic, and produce synthetic flow data for defensive analysis and training.
 
-**Author:** Elif Cetin  
-**Lab environment:** VirtualBox VMs (Kali Linux 2024.x), isolated VLAN, Sept 2025
+Author: Elif Cetin  
+Lab environment: VirtualBox VMs (Kali Linux 2024.x), isolated VLAN, Sept 2025
 
 ---
 
-### Project Scope
+# Project Scope
 
 Actions performed in a virtual lab environment:
 
@@ -18,7 +18,7 @@ Actions performed in a virtual lab environment:
 
 ---
 
-### Tools & Technologies
+# Tools & Technologies
 
 | Category               | Tools Used                                             |
 |------------------------|--------------------------------------------------------|
