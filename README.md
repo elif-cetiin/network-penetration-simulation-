@@ -32,7 +32,7 @@ Actions performed in a virtual lab environment:
 
 ### Repository Structure
 
-'''text
+```text
 /scripts                         → Custom Python scripts used in the lab
 │   └── generate_synthetic_flows.py   (creates synthetic CSV traffic data)
 │   └── synthetic_flows_sample.csv    (small example output)
@@ -40,4 +40,5 @@ Actions performed in a virtual lab environment:
 requirements.txt                 → Python dependency list (pandas, matplotlib)
 ETHICS_AND_SAFE_USE.md           → Ethical usage and safety notice
 README.md                        → This project overview
-'''
+```
+
