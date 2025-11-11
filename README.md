@@ -1,15 +1,43 @@
 ## Network Penetration Simulation (Ethical Hacking Project)
 
-This project simulates real-world network penetration testing activities in a controlled lab environment using Kali Linux, Parrot OS, Wireshark, Nmap, and Python.
+This project documents ethical penetration testing activities executed in a controlled, isolated lab environment. Work was performed using Kali Linux (VM), Parrot OS, Wireshark, Nmap, and Python. The primary goals were to reproduce realistic attack patterns, capture and analyze network traffic, and produce synthetic flow data for defensive analysis and training.
 
-### What was done
+**Author:** Elif Cetin  
+**Lab environment:** VirtualBox VMs (Kali Linux 2024.x), isolated VLAN, Sept 2025
 
-- Executed penetration testing techniques: MAC flooding, ARP poisoning, and DoS traffic generation.
-- Captured live network packets with Wireshark and analyzed attack patterns.
-- Identified vulnerabilities and documented mitigation strategies.
-- Performed hands-on ethical hacking labs aligned with EC-Council training (password cracking, credential harvesting, social engineering simulations).
+---
+
+### Project Scope
+
+Actions performed in a virtual lab environment:
+
+- Performed MAC flooding and ARP poisoning to observe switching/ARP table behavior.
+- Simulated DoS-style traffic bursts to identify abnormal flow characteristics.
+- Captured live packets with Wireshark and inspected protocol activity (TCP/UDP, ARP).
+- Recorded findings and recommended mitigations for the observed vulnerabilities.
+
+---
 
 ### Tools & Technologies
-Kali Linux · Parrot OS · Wireshark · Nmap · Python · VirtualBox · Git
 
-> This repository includes: scripts used during the lab, sample PCAP analysis notes, and documentation of attack steps and defensive strategies.
+| Category               | Tools Used                                             |
+|------------------------|--------------------------------------------------------|
+| Penetration Testing    | Kali Linux, Parrot OS, Nmap, small MAC-flood scripts   |
+| Traffic Capture/Analysis| Wireshark                                              |
+| Automation / Scripting | Python (data generator + small parsers)                |
+| Virtualization         | VirtualBox                                             |
+| Version Control        | Git & GitHub                                           |
+
+---
+
+### Repository Structure
+
+'''text
+/scripts                         → Custom Python scripts used in the lab
+│   └── generate_synthetic_flows.py   (creates synthetic CSV traffic data)
+│   └── synthetic_flows_sample.csv    (small example output)
+/safe_artifacts                  → Generated artifacts (CSV, PCAP summaries)
+requirements.txt                 → Python dependency list (pandas, matplotlib)
+ETHICS_AND_SAFE_USE.md           → Ethical usage and safety notice
+README.md                        → This project overview
+'''
