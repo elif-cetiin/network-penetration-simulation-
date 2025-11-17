@@ -12,20 +12,20 @@ import random
 from datetime import datetime, timedelta
 import os
 
-# Example ports & protocols observed in typical network traffic
+# Common ports and protocols seen in lab traffic
 PORTS = [80, 443, 53, 22, 123, 8080]
 PROTOCOLS = ["TCP", "UDP"]
 
-# IP address pools (private ranges and reserved test-range for dst)
+# IP address pools (private range for src, RFC 5737 test range for dst)
 SRC_POOL = [f"10.0.0.{i}" for i in range(2, 50)]
-DST_POOL = [f"192.0.2.{i}" for i in range(1, 40)]  # RFC 5737 reserved documentation range
+DST_POOL = [f"192.0.2.{i}" for i in range(1, 40)]  # reserved documentation range
 
 
 def generate_flows(minutes=60, out="safe_artifacts/synthetic_flows.csv"):
     """
     Generates synthetic network flow records and writes them to a CSV file.
-    Normal traffic is generated every minute, with a small chance of anomaly spikes
-    that simulate data exfiltration attempts.
+    Normal traffic is created every minute, with a small chance of spikes
+    that mimic data exfiltration attempts.
     """
     dirpath = os.path.dirname(out)
     if dirpath:
@@ -35,12 +35,16 @@ def generate_flows(minutes=60, out="safe_artifacts/synthetic_flows.csv"):
 
     with open(out, "w", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow(["timestamp", "src_ip", "dst_ip", "dst_port", "protocol", "bytes", "label"])
+        writer.writerow(["timestamp", "src_ip", "dst_ip",
+                         "dst_port", "protocol", "bytes", "label"])
 
         for minute in range(minutes):
-            # Normal flows (random volume per minute)
+            # Normal flows
             for _ in range(random.randint(35, 45)):
-                ts = start_time + timedelta(minutes=minute, seconds=random.randint(0, 59))
+                ts = start_time + timedelta(
+                    minutes=minute,
+                    seconds=random.randint(0, 59)
+                )
                 writer.writerow([
                     ts.isoformat(),
                     random.choice(SRC_POOL),
@@ -48,7 +52,7 @@ def generate_flows(minutes=60, out="safe_artifacts/synthetic_flows.csv"):
                     random.choice(PORTS),
                     random.choice(PROTOCOLS),
                     random.randint(300, 1500),
-                    "normal"
+                    "normal",
                 ])
 
             # Occasional anomaly spike (simulated exfiltration)
@@ -62,10 +66,10 @@ def generate_flows(minutes=60, out="safe_artifacts/synthetic_flows.csv"):
                         random.choice([4444, 5555, 6666]),
                         "TCP",
                         random.randint(200_000, 900_000),
-                        "anomaly"
+                        "anomaly",
                     ])
 
-    print(f"✔ Synthetic flows saved to: {out}")
+    print(f"Synthetic flows written to: {out}")
 
 
 if __name__ == "__main__":
