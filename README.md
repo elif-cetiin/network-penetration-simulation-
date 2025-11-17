@@ -38,4 +38,4 @@ ETHICS_AND_SAFE_USE.md           → Ethical usage and safety notice
 README.md                        → Project overview
 ```
 ## Author: Elif Cetin
-## Environment: VirtualBox VMs running Kali Linux (2024.x) in an isolated VLAN — conducted September 2025
+## Environment: VirtualBox VMs running Kali Linux (2024.x) in an isolated VLAN - conducted September 2025
